@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CustomWallPaper</string>
+    <string name="text_start">开始</string>
+    <string name="permission_get">提示</string>
+    <string name="permission_desc">亲：为了应用可以使用，请同意这些权限</string>
+    <string name="text_read">读写权限</string>
+    <string name="text_read_phone_state">手机状态权限</string>
+</resources>
