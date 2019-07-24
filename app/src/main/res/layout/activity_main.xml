@@ -1,15 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-   <Button
-       android:id="@+id/btn_start"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:text="@string/text_start"/>
+
+    <com.flyco.tablayout.CommonTabLayout
+        android:id="@+id/common_table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:tl_indicator_anim_enable="true"
+        app:tl_indicator_anim_duration="100"
+        app:tl_tab_padding="@dimen/dp_5"
+        app:tl_iconGravity="TOP"
+        app:tl_iconHeight="@dimen/dp_24"
+        app:tl_iconMargin="@dimen/dp_5"
+        app:tl_iconWidth="@dimen/dp_24"
+        app:tl_tab_space_equal="true"
+        app:tl_textSelectColor="@color/colorBlue"
+        app:tl_textUnselectColor="@color/colorGray"
+        app:tl_textsize="@dimen/sp_14" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorGrayLight"
+        android:layout_above="@+id/common_table" />
 
 
-</LinearLayout>
+</RelativeLayout>

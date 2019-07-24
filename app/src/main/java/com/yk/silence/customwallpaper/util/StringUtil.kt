@@ -11,4 +11,17 @@ object StringUtil {
     fun isSpace(s: String?): Boolean {
         return s == null || s.trim { it <= ' ' }.length == 0
     }
+
+    /**
+     * 判断给定的字符串是否为null或者是空的
+     *
+     * @param string 给定的字符串
+     */
+    fun isEmpty(string: String?): Boolean {
+        return string == null || "" == string.trim { it <= ' ' }
+    }
+
+    fun isBlank(str: String?): Boolean {
+        return str == null || str.trim({ it <= ' ' }).length == 0
+    }
 }

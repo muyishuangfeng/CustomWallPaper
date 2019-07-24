@@ -18,10 +18,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".widget.SplashActivity">
+        <activity android:name=".widget.activity.SplashActivity"
+            android:theme="@style/translation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -39,7 +39,9 @@
                 android:resource="@xml/customwallpaper" />
         </service>
 
-        <activity android:name=".widget.MainActivity"/>
+        <activity android:name=".widget.activity.MainActivity" />
+        <activity android:name=".ui.mediapicture.activity.ImageSelectActivity" />
+        <activity android:name=".ui.mediapicture.activity.VideoSelectActivity"/>
     </application>
 
 </manifest>

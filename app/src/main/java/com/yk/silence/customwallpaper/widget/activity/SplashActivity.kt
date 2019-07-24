@@ -1,4 +1,4 @@
-package com.yk.silence.customwallpaper.widget
+package com.yk.silence.customwallpaper.widget.activity
 
 import android.Manifest
 import android.animation.Animator
@@ -13,7 +13,6 @@ import com.yk.silent.permission.HiPermission
 import com.yk.silent.permission.impl.PermissionCallback
 import com.yk.silent.permission.model.PermissionItem
 import kotlinx.android.synthetic.main.activity_splash.*
-import java.io.File
 import java.util.ArrayList
 
 class SplashActivity : AppCompatActivity() {
@@ -76,6 +75,9 @@ class SplashActivity : AppCompatActivity() {
                     override fun onFinish() {
                         if (!FileUtil.isFileExists(Constants.VIDEO_PATH)) {
                             FileUtil.createFile(Constants.VIDEO_PATH)
+                        }
+                        if (!FileUtil.isFileExists(Constants.IMAGE_PATH)) {
+                            FileUtil.createFile(Constants.IMAGE_PATH)
                         }
                         initView()
                     }
