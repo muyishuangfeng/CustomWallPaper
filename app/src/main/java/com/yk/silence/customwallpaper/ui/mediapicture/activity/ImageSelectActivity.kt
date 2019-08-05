@@ -10,9 +10,8 @@ import android.util.Log
 import android.view.View
 import android.view.Window
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.yk.silence.customwallpaper.R
-import com.yk.silence.customwallpaper.commont.Constants
+import com.yk.silence.customwallpaper.constance.Constants
 import com.yk.silence.customwallpaper.ui.mediapicture.decoration.MediaItemDecoration
 import com.yk.silence.customwallpaper.ui.mediapicture.adapter.LocalImageAdapter
 import com.yk.silence.customwallpaper.ui.mediapicture.impl.OnLocalImageSelectListener

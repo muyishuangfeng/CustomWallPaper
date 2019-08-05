@@ -2,11 +2,9 @@ package com.yk.silence.customwallpaper.util
 
 import android.os.Environment
 import android.text.TextUtils
-import com.yk.silence.customwallpaper.commont.Constants
-import com.yk.silence.customwallpaper.model.HomeModel
+import com.yk.silence.customwallpaper.constance.Constants
+import com.yk.silence.customwallpaper.mvp.model.bean.HomeModel
 import java.io.*
-import org.json.JSONObject
-import org.json.JSONArray
 
 
 object FileUtil {

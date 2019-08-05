@@ -3,6 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/btn_setting"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:gravity="center"
+        android:text="@string/text_setting"
+        android:textColor="@color/colorBlue"
+        android:textSize="@dimen/sp_14" />
+
     <LinearLayout
         android:id="@+id/lyt_empty"
         android:layout_width="wrap_content"

@@ -1,22 +1,20 @@
 package com.yk.silence.customwallpaper.widget.activity
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.view.Window
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.flyco.tablayout.listener.CustomTabEntity
 import com.flyco.tablayout.listener.OnTabSelectListener
 
 import com.yk.silence.customwallpaper.R
-import com.yk.silence.customwallpaper.model.TabEntity
+import com.yk.silence.customwallpaper.base.BaseActivity
+import com.yk.silence.customwallpaper.mvp.model.bean.TabEntity
 import com.yk.silence.customwallpaper.widget.adapter.FragmentActionAdapter
 import com.yk.silence.customwallpaper.widget.fragment.HomeFragment
 import com.yk.silence.customwallpaper.widget.fragment.MyselfFragment
 import com.yk.silence.customwallpaper.widget.fragment.NodeFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), OnTabSelectListener, ViewPager.OnPageChangeListener {
+class MainActivity : BaseActivity(), OnTabSelectListener, ViewPager.OnPageChangeListener {
 
 
     var mAdapter: FragmentActionAdapter? = null
@@ -32,12 +30,29 @@ class MainActivity : AppCompatActivity(), OnTabSelectListener, ViewPager.OnPageC
             R.drawable.ic_all_selected)
     private val mTabEntities = java.util.ArrayList<CustomTabEntity>()
 
+    override fun getLayoutID(): Int {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
-        setContentView(R.layout.activity_main)
-        initView()
+        return R.layout.activity_main
+    }
+
+    /**
+     * 初始化数据
+     */
+    override fun initData() {
+        homeFragment = HomeFragment()
+        myselfFragment = MyselfFragment()
+        nodeFragment = NodeFragment()
+        mList?.add(nodeFragment!!)
+        mList?.add(homeFragment!!)
+        mList?.add(myselfFragment!!)
+        mAdapter = FragmentActionAdapter(supportFragmentManager, mList!!)
+        vp_main.adapter = mAdapter
+        for (i in mTitles.indices) {
+            mTabEntities.add(TabEntity(mTitles[i], mIconSelectIds[i], mIconUnselectIds[i]))
+        }
+        common_table.setTabData(mTabEntities)
+        common_table.setOnTabSelectListener(this)
+        vp_main.addOnPageChangeListener(this)
     }
 
 
@@ -58,26 +73,6 @@ class MainActivity : AppCompatActivity(), OnTabSelectListener, ViewPager.OnPageC
 
     override fun onPageSelected(position: Int) {
         common_table.currentTab = position;
-    }
-
-    /**
-     * 初始化控件
-     */
-    private fun initView() {
-        homeFragment = HomeFragment()
-        myselfFragment = MyselfFragment()
-        nodeFragment = NodeFragment()
-        mList?.add(nodeFragment!!)
-        mList?.add(homeFragment!!)
-        mList?.add(myselfFragment!!)
-        mAdapter = FragmentActionAdapter(supportFragmentManager, mList!!)
-        vp_main.adapter = mAdapter
-        for (i in mTitles.indices) {
-            mTabEntities.add(TabEntity(mTitles[i], mIconSelectIds[i], mIconUnselectIds[i]))
-        }
-        common_table.setTabData(mTabEntities)
-        common_table.setOnTabSelectListener(this)
-        vp_main.addOnPageChangeListener(this)
     }
 
 

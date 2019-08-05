@@ -1,29 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/lyt_empty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/lyt_node_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:orientation="horizontal">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/node_table"
+            android:layout_width="@dimen/dp_120"
+            android:layout_height="@dimen/dp_50"
+            android:layout_centerHorizontal="true"
+            app:tabGravity="center"
+            app:tabRippleColor="@color/colorTransparent"
+            app:tabTextAppearance="@style/TabLayoutTextStyle"
+            app:tabIndicatorColor="@color/colorBlue"
+            app:tabSelectedTextColor="@color/colorBlue"
+            app:tabTextColor="@color/colorBlack" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="@dimen/dp_80"
-            android:layout_height="@dimen/dp_80"
-            android:src="@drawable/ic_no" />
+            android:id="@+id/img_node_time"
+            android:layout_width="@dimen/dp_32"
+            android:layout_height="@dimen/dp_32"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_toEndOf="@+id/node_table"
+            android:src="@drawable/ic_all" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="@string/text_stay"
-            android:textColor="@color/colorBlue"
-            android:textSize="@dimen/sp_14" />
-    </LinearLayout>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_node_edit"
+            android:layout_width="@dimen/dp_32"
+            android:layout_height="@dimen/dp_32"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp_5"
+            android:layout_marginEnd="@dimen/dp_5"
+            android:layout_toEndOf="@+id/img_node_time"
+            android:src="@drawable/ic_all" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_node_add"
+            android:layout_width="@dimen/dp_32"
+            android:layout_height="@dimen/dp_32"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp_5"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:layout_toEndOf="@+id/img_node_edit"
+            android:visibility="gone"
+            android:src="@drawable/ic_all" />
+    </RelativeLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vpg_node"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/lyt_node_title" />
 
 
 </RelativeLayout>

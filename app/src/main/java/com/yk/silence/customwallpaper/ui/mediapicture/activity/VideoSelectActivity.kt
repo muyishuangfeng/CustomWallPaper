@@ -1,7 +1,6 @@
 package com.yk.silence.customwallpaper.ui.mediapicture.activity
 
 import android.Manifest
-import android.opengl.Visibility
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,7 +11,7 @@ import android.view.View
 import android.view.Window
 import androidx.recyclerview.widget.GridLayoutManager
 import com.yk.silence.customwallpaper.R
-import com.yk.silence.customwallpaper.commont.Constants
+import com.yk.silence.customwallpaper.constance.Constants
 import com.yk.silence.customwallpaper.ui.mediapicture.decoration.MediaItemDecoration
 import com.yk.silence.customwallpaper.ui.mediapicture.adapter.LocalVideoAdapter
 import com.yk.silence.customwallpaper.ui.mediapicture.impl.OnLocalVideoSelectListener

@@ -6,7 +6,7 @@ import com.yk.silence.customwallpaper.R
 import com.yk.silence.customwallpaper.base.BaseFragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.flyco.tablayout.listener.OnTabSelectListener
-import com.yk.silence.customwallpaper.commont.Constants
+import com.yk.silence.customwallpaper.constance.Constants
 import com.yk.silence.customwallpaper.impl.OnItemClickListener
 import com.yk.silence.customwallpaper.ui.mediapicture.activity.ImageSelectActivity
 import com.yk.silence.customwallpaper.util.FileUtil
@@ -14,7 +14,7 @@ import com.yk.silence.customwallpaper.widget.adapter.HomeAdapter
 import kotlinx.android.synthetic.main.fragment_home.*
 import android.app.WallpaperManager
 import android.graphics.BitmapFactory
-import com.yk.silence.customwallpaper.model.HomeModel
+import com.yk.silence.customwallpaper.mvp.model.bean.HomeModel
 import java.io.IOException
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
@@ -40,7 +40,7 @@ class HomeFragment : BaseFragment(), OnTabSelectListener, OnItemClickListener, V
         slide_layout.setOnTabSelectListener(this)
     }
 
-    override fun onFragmentVisiableChange(b: Boolean) {
+    override fun onFragmentVisibleChange(b: Boolean) {
         if (b) {
             searchFile(Constants.IMAGE_PATH)
         }

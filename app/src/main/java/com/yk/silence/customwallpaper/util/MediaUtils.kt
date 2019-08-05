@@ -1,5 +1,6 @@
 package com.yk.silence.customwallpaper.util
 
+import android.annotation.SuppressLint
 import android.content.ContentResolver
 import android.content.ContentResolver.SCHEME_CONTENT
 import android.content.Context
@@ -8,9 +9,14 @@ import android.net.Uri
 import android.provider.MediaStore
 import com.yk.silence.customwallpaper.ui.mediapicture.model.ImageMediaEntity
 import com.yk.silence.customwallpaper.ui.mediapicture.model.VideoMediaEntity
+import android.provider.MediaStore.Video
+import android.util.Log
+import com.yk.silence.customwallpaper.ui.mediapicture.model.MediaBean
+import java.io.File
+
 
 class MediaUtils {
-    companion object{
+    companion object {
         private var mThumbnailMap: Map<String, String>? = null
 
         /**
@@ -76,7 +82,7 @@ class MediaUtils {
                         //images.add(cursor.getString(cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA)))
                         images.add(image)
                         mThumbnailMap = null
-                    }while (cursor.moveToNext())
+                    } while (cursor.moveToNext())
 
                     return images
                 }
@@ -117,7 +123,7 @@ class MediaUtils {
          *     @desc   get all videos of the phone.
          * <pre/>
          */
-        fun getLocalVideos(mContext: Context?) : List<VideoMediaEntity>?{
+        fun getLocalVideos(mContext: Context?): List<VideoMediaEntity>? {
             val videos = ArrayList<VideoMediaEntity>()
             val resolver = mContext?.contentResolver
             var cursor: Cursor? = null
@@ -134,7 +140,7 @@ class MediaUtils {
                 return if (cursor == null || !cursor.moveToFirst()) {
                     null
                 } else {
-                    while (cursor.moveToNext()){
+                    while (cursor.moveToNext()) {
                         // video path
                         val path = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATA))
                         // video id
@@ -174,18 +180,17 @@ class MediaUtils {
          *
          * @author moosphon
          */
-        private fun getVideoThumbnailById(context: Context?, id: Long): String?{
-
+        private fun getVideoThumbnailById(context: Context?, id: Long): String? {
             //提前生成缩略图，再获取：http://stackoverflow.com/questions/27903264/how-to-get-the-video-thumbnail-path-and-not-the-bitmap
             //MediaStore.Video.Thumbnails.getThumbnail(context!!.contentResolver, id, MediaStore.Video.Thumbnails.MICRO_KIND, null)
             val projection = arrayOf(MediaStore.Video.Thumbnails.DATA,
                     MediaStore.Video.Thumbnails.VIDEO_ID)
-            val thumbCursor = context?.contentResolver!!.query(
+            val thumbCursor = context?.contentResolver?.query(
                     MediaStore.Video.Thumbnails.EXTERNAL_CONTENT_URI,
                     projection, MediaStore.Video.Thumbnails.VIDEO_ID
                     + "=" + id, null, null)
             var thumbnailUri = ""
-            while (thumbCursor.moveToFirst()){
+            while (thumbCursor!!.moveToFirst()) {
                 thumbnailUri = thumbCursor.getString(thumbCursor.getColumnIndex(MediaStore.Video.Thumbnails.DATA))
             }
             thumbCursor.close()
@@ -193,4 +198,8 @@ class MediaUtils {
         }
 
     }
+
+
+
+
 }

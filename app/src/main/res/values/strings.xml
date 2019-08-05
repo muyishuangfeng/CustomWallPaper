@@ -17,4 +17,19 @@
     <string name="text_image">图片</string>
     <string name="text_back">返回</string>
     <string name="text_stay">亲：敬请期待</string>
+    <string name="text_setting">设置</string>
+    <string name="text_wanlan">Wifi服务已开启</string>
+    <string name="text_wifi_tips">http://0.0.0.0:0000</string>
+    <string name="text_cancel">取消</string>
+    <string name="text_set_network">设置网络</string>
+    <string name="pls_check_network_state">请检查您的网络设置</string>
+    <string name="fail_to_start_http_service">启动HTTP服务失败</string>
+    <string name="text_wanlan_unless">WLAN服务未开启</string>
+    <string name="retrofit_wlan_address">正在获取地址...</string>
+    <string name="http_address">http://%1$s:%2$d</string>
+    <string name="pls_input_the_following_address_in_pc_browser">请在电脑浏览器地址栏完整输入</string>
+    <string name="text_app">App列表</string>
+    <string name="text_default">默认</string>
+    <string name="text_install">安装</string>
+    <string name="text_uninstall">卸载</string>
 </resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.yk.silence.toolbar.CustomTitleBar
+        android:id="@+id/title_setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:leftImage="@drawable/ic_back"
+        app:middleTextColor="@color/colorBlue"
+        app:middleTextSize="@dimen/sp_16"
+        app:middleTitle="@string/text_setting" />
+
+    <Button
+        android:id="@+id/btn_app"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/text_app"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/sp_14"
+        android:gravity="center_vertical"
+        app:fontFamily="@font/fzlantingheis_regular" />
+</LinearLayout>

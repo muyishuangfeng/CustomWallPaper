@@ -1,4 +1,4 @@
-package com.yk.silence.customwallpaper.model
+package com.yk.silence.customwallpaper.mvp.model.bean
 
 import com.flyco.tablayout.listener.CustomTabEntity
 

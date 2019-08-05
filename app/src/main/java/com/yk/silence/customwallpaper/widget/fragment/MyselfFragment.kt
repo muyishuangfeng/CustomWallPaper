@@ -1,10 +1,13 @@
 package com.yk.silence.customwallpaper.widget.fragment
 
+import android.view.View
 import com.yk.silence.customwallpaper.R
 import com.yk.silence.customwallpaper.base.BaseFragment
+import com.yk.silence.customwallpaper.widget.activity.SettingActivity
+import kotlinx.android.synthetic.main.fragment_myself.*
 
 
-class MyselfFragment : BaseFragment() {
+class MyselfFragment : BaseFragment(), View.OnClickListener {
 
 
     override fun getLayoutID(): Int {
@@ -12,6 +15,15 @@ class MyselfFragment : BaseFragment() {
     }
 
     override fun initView() {
+        btn_setting.setOnClickListener(this)
+    }
+
+    override fun onClick(view: View?) {
+        when (view?.id) {
+            R.id.btn_setting -> {
+                startActivity(SettingActivity::class.java)
+            }
+        }
     }
 
 

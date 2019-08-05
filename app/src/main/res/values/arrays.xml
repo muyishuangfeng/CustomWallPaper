@@ -1,0 +1,9 @@
+<resources>
+
+    <string-array name="notes">
+        <item>时间轴</item>
+        <item>故事集</item>
+    </string-array>
+
+
+</resources>

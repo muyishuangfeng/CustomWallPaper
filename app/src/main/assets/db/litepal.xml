@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value="db_note" />
+    <version value="2" />
+
+    <list>
+        <mapping class="com.yk.silence.customwallpaper.mvp.model.bean.note.NoteBean" />
+        <mapping class="com.yk.silence.customwallpaper.mvp.model.bean.note.NoteGroupBean" />
+    </list>
+
+</litepal>

@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import android.content.Intent
+
 
 abstract class BaseFragment : Fragment() {
 
@@ -17,7 +19,7 @@ abstract class BaseFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        mActivity == context
+        mActivity = activity
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -42,22 +44,62 @@ abstract class BaseFragment : Fragment() {
         }
         //可见，并且没有加载过
         if (!isFirst && isFragmentVisiable) {
-            onFragmentVisiableChange(true)
+            onFragmentVisibleChange(true)
             return
         }
         //由可见——>不可见 已经加载过
         if (isFragmentVisiable) {
-            onFragmentVisiableChange(false)
+            onFragmentVisibleChange(false)
             isFragmentVisiable = false
         }
 
     }
 
-    open protected fun onFragmentVisiableChange(b: Boolean) {
+    protected open fun onFragmentVisibleChange(b: Boolean) {
 
     }
 
     abstract fun getLayoutID(): Int
 
     abstract fun initView()
+
+
+    /**
+     * 通过Class跳转界面
+     */
+    fun startActivity(cls: Class<*>) {
+        startActivity(cls, null)
+    }
+
+    /**
+     * 通过Class跳转界面
+     */
+    fun startActivityForResult(cls: Class<*>, requestCode: Int) {
+        startActivityForResult(cls, null, requestCode)
+    }
+
+    /**
+     * 含有Bundle通过Class跳转界面
+     */
+    private fun startActivityForResult(cls: Class<*>, bundle: Bundle?,
+                                       requestCode: Int) {
+        val intent = Intent()
+        intent.setClass(mActivity!!, cls)
+        if (bundle != null) {
+            intent.putExtras(bundle)
+        }
+        startActivityForResult(intent, requestCode)
+    }
+
+    /**
+     * 含有Bundle通过Class跳转界面
+     */
+    fun startActivity(cls: Class<*>, bundle: Bundle?) {
+        val intent = Intent()
+        intent.setClass(mActivity!!, cls)
+        if (bundle != null) {
+            intent.putExtras(bundle)
+        }
+        startActivity(intent)
+    }
 }

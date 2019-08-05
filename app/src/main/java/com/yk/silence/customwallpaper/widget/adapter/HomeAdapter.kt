@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.yk.silence.customwallpaper.R
 import com.yk.silence.customwallpaper.impl.OnItemClickListener
-import com.yk.silence.customwallpaper.model.HomeModel
+import com.yk.silence.customwallpaper.mvp.model.bean.HomeModel
 import com.yk.silence.customwallpaper.ui.glide.GlideUtil
 import kotlinx.android.synthetic.main.item_home_layout.view.*
 
