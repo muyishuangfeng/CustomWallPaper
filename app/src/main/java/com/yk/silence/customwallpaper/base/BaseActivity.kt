@@ -5,6 +5,8 @@ import android.view.Window
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity
 import android.content.Intent
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
+import com.yk.silence.customwallpaper.R
 import com.yk.silence.customwallpaper.constance.ActivityStackManager
 import com.yk.silence.customwallpaper.widget.activity.MainActivity
 
@@ -90,6 +92,30 @@ abstract class BaseActivity : SwipeBackActivity() {
             }
         }
 
+    }
+
+    /**
+     * Fragment优化
+     *
+     * @param targetFragment
+     * @return
+     */
+    protected fun switchFragment(targetFragment: Fragment): FragmentTransaction {
+        val currentFragment = Fragment()
+        val transaction = supportFragmentManager
+                .beginTransaction()
+        if (!targetFragment.isAdded) {
+            //第一次使用switchFragment()时currentFragment为null，所以要判断一下
+            transaction.hide(currentFragment)
+            transaction.add(R.id.fl_container, targetFragment, targetFragment.javaClass.name)
+        } else {
+            transaction
+                    .hide(currentFragment)
+                    .show(targetFragment)
+                    .commit()
+        }
+        currentFragment == targetFragment
+        return transaction
     }
 
     override fun onDestroy() {

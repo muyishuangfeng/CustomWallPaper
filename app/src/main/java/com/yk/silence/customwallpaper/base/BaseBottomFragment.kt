@@ -25,19 +25,12 @@ abstract class BaseBottomFragment : BottomSheetDialogFragment() {
     private var mRootView: View? = null
     private var mDialog: CustomBottomSheetDialog? = null
 
-    override fun onAttach(activity: Activity?) {
-        super.onAttach(activity)
-        mActivity = getActivity()
-    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mDialog = CustomBottomSheetDialog(activity!!)
     }
-
-
-    protected val height: Int
-        get() = resources.displayMetrics.heightPixels
 
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -73,10 +66,10 @@ abstract class BaseBottomFragment : BottomSheetDialogFragment() {
         val bottomSheet = mDialog?.delegate?.findViewById<FrameLayout>(R.id.design_bottom_sheet)
         if (bottomSheet != null) {
             val layoutParams = bottomSheet.layoutParams as CoordinatorLayout.LayoutParams
-            layoutParams.height = height
+            layoutParams.height = getHeight()
             bottomSheet.layoutParams = layoutParams
             val behavior = BottomSheetBehavior.from(bottomSheet)
-            behavior.peekHeight = height
+            behavior.peekHeight = getHeight()
             // 初始为展开状态
             //behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
             behavior.setBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
@@ -101,6 +94,9 @@ abstract class BaseBottomFragment : BottomSheetDialogFragment() {
      */
     protected abstract fun initView()
 
+    open fun getHeight(): Int {
+        return resources.displayMetrics.heightPixels
+    }
 
     /**
      * 通过Class跳转界面

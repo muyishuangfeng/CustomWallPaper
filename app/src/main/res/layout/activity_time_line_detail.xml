@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp_20">
+
+        <RelativeLayout
+            android:id="@+id/ryt_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20">
+
+            <TextView
+                android:id="@+id/txt_note_detail_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:text="@string/text_default_number"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/sp_32"
+                app:fontFamily="@font/fzlantingheis_db1_gb_regular" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/txt_note_detail_day"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_note_detail_week"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/dp_5"
+                    android:text="@string/text_default"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/sp_12"
+                    app:fontFamily="@font/fzlantingheis_regular" />
+
+                <TextView
+                    android:id="@+id/txt_note_detail_daily"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/dp_5"
+                    android:text="@string/text_default"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/sp_12"
+                    app:fontFamily="@font/fzlantingheis_regular" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txt_note_detail_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ryt_title"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="@string/text_default"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/sp_12"
+            app:fontFamily="@font/fzlantingheis_regular" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_note_detail_content"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_200"
+            android:layout_below="@+id/txt_note_detail_content"
+            android:layout_margin="@dimen/dp_20"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/txt_note_detail_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_note_detail_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/dp_20"
+            android:drawableStart="@drawable/ic_open"
+            android:drawablePadding="@dimen/dp_5"
+            android:text="@string/text_default"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/sp_12"
+            app:fontFamily="@font/fzlantingheis_regular" />
+
+
+    </RelativeLayout>
+
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        app:layout_behavior="com.yk.silence.customwallpaper.ui.behaivor.CustomBottomBarBehavior">
+
+        <RadioButton
+            android:id="@+id/rdb_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/dp_40"
+            android:button="@null"
+            android:drawableTop="@drawable/ic_open"
+            android:drawablePadding="@dimen/dp_5"
+            android:text="@string/text_edit"
+            android:textColor="@color/colorGray"
+            android:textSize="@dimen/sp_14" />
+
+        <androidx.legacy.widget.Space
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:id="@+id/rdb_shared"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:button="@null"
+            android:drawableTop="@drawable/ic_open"
+            android:drawablePadding="@dimen/dp_5"
+            android:text="@string/text_share"
+            android:textColor="@color/colorGray"
+            android:textSize="@dimen/sp_14" />
+
+        <androidx.legacy.widget.Space
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:id="@+id/rdb_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/dp_40"
+            android:button="@null"
+            android:drawableTop="@drawable/ic_open"
+            android:drawablePadding="@dimen/dp_5"
+            android:text="@string/text_delete"
+            android:textColor="@color/colorGray"
+            android:textSize="@dimen/sp_14" />
+    </RadioGroup>
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

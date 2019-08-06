@@ -50,6 +50,10 @@ object Constants {
      */
     val DIR = File(SDCARD_PATH + File.separator + DIR_IN_SDCARD + File.separator
             + "install" + File.separator)
+    /**
+     * 文件安装路径
+     */
+    val ARG_NUMBER = "ARG_NUMBER"
 
     /**
      * 类型

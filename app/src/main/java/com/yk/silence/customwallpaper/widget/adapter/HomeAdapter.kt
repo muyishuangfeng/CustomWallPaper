@@ -56,8 +56,7 @@ class HomeAdapter(context: Context, list: List<HomeModel>) : RecyclerView.Adapte
     private fun setUIEvent(holder: HomeViewHolder) {
         if (mListener != null) {
             holder.itemView.setOnClickListener(View.OnClickListener {
-                val layoutPosition = holder.getLayoutPosition()
-                mListener!!.itemClick(layoutPosition, holder.itemView)
+                mListener!!.itemClick( holder.layoutPosition, holder.itemView)
             })
         }
     }

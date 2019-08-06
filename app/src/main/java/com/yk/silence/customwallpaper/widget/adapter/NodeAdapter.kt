@@ -66,26 +66,7 @@ class NodeAdapter(context: Context, list: MutableList<NoteBean>) : RecyclerView.
     }
 
 
-    /**
-     * 判断position对应的Item是否是组的第一项
-     */
-    fun isItemHeader(position: Int): Boolean {
-        return if (position == 0) {
-            true
-        } else {
-            val lastGroupName = mList?.get(position - 1)?.userYear
-            val currentGroupName = mList?.get(position)?.userYear
-            //判断上一个数据的组别和下一个数据的组别是否一致，如果不一致则是不同组，也就是为第一项（头部）
-            lastGroupName != currentGroupName
-        }
-    }
 
-    /**
-     * 获取position对应的Item组名
-     */
-    fun getGroupName(position: Int): String? {
-        return mList?.get(position)?.userYear
-    }
 
 
     /**

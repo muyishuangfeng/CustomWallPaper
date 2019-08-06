@@ -28,12 +28,12 @@ class DBController {
     /**
      * 增加
      */
-    fun add(userName: String?, content: String?, location: String?, imgUrl: String?,
+    fun add(noteName: String?, content: String?, location: String?, imgUrl: String?,
             month: String?,year:String?): Boolean {
         val noteBean = NoteBean()
         noteBean.userContent = content
         noteBean.userLocation = location
-        noteBean.userName = userName
+        noteBean.noteName = noteName
         noteBean.userMonth = month
         noteBean.userYear = year
         if (!TextUtils.isEmpty(imgUrl)) {
@@ -120,7 +120,7 @@ class DBController {
         if (cursor != null && cursor.moveToFirst()) {
             do {
                 val id = cursor.getLong(cursor.getColumnIndex("id"))
-                val userName = cursor.getString(cursor.getColumnIndex("userName"))
+                val noteName = cursor.getString(cursor.getColumnIndex("noteName"))
                 val userContent = cursor.getString(cursor.getColumnIndex("userContent"))
                 val userMonth = cursor.getString(cursor.getColumnIndex("userMonth"))
                 val userYear = cursor.getString(cursor.getColumnIndex("userYear"))
@@ -128,7 +128,7 @@ class DBController {
                 val userLocation = cursor.getString(cursor.getColumnIndex("userLocation"))
                 val noteBean = NoteBean()
                 noteBean.id = id
-                noteBean.userName = userName
+                noteBean.noteName = noteName
                 noteBean.userMonth = userMonth
                 noteBean.userYear = userYear
                 noteBean.userUrl = userUrl

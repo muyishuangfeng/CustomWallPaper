@@ -57,7 +57,7 @@ class CustomBottomSheetDialog : BottomSheetDialog {
         return statusBarHeight
     }
 
-    override fun dispatchKeyEvent(event: KeyEvent): Boolean {
-        return event.keyCode == KeyEvent.KEYCODE_BACK || super.dispatchKeyEvent(event)
-    }
+//    override fun dispatchKeyEvent(event: KeyEvent): Boolean {
+//        return event.keyCode == KeyEvent.KEYCODE_BACK || super.dispatchKeyEvent(event)
+//    }
 }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <com.yk.silence.toolbar.CustomTitleBar
+        android:id="@+id/title_timeline_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:leftImage="@drawable/ic_back" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/img_timeline_detail_url"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/txt_timeline_detail_download"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_50"
+            android:layout_gravity="bottom"
+            android:layout_margin="@dimen/dp_20"
+            android:gravity="center"
+            android:text="@string/text_download"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/sp_14"
+            app:fontFamily="@font/fzlantingheis_db1_gb_regular" />
+    </FrameLayout>
+</LinearLayout>

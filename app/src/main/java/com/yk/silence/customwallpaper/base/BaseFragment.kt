@@ -12,10 +12,10 @@ import android.content.Intent
 
 abstract class BaseFragment : Fragment() {
 
-    var isFirst: Boolean = false
-    var rootView: View? = null
-    var isFragmentVisiable: Boolean = false
-    var mActivity: Activity? = null
+    private var isFirst: Boolean = false
+    private var rootView: View? = null
+    private var isFragmentVisiable: Boolean = false
+    private var mActivity: Activity? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

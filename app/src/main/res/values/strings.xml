@@ -30,6 +30,15 @@
     <string name="pls_input_the_following_address_in_pc_browser">请在电脑浏览器地址栏完整输入</string>
     <string name="text_app">App列表</string>
     <string name="text_default">默认</string>
+    <string name="text_default_number">15</string>
     <string name="text_install">安装</string>
     <string name="text_uninstall">卸载</string>
+    <string name="text_open">打开该年</string>
+    <string name="text_close">关闭该年</string>
+    <string name="text_edit">编辑</string>
+    <string name="text_share">分享</string>
+    <string name="text_delete">删除</string>
+    <string name="text_download">下载</string>
+    <string name="text_story">故事</string>
+    <string name="text_no_name">未命名</string>
 </resources>
