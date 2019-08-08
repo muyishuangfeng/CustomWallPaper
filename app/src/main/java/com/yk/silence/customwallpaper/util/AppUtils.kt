@@ -126,7 +126,7 @@ object AppUtils {
         //兼容7.0
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
-            val contentUri = FileProvider.getUriForFile(context, context.packageName + ".fileprovider", file)
+            val contentUri = FileProvider.getUriForFile(context, context.packageName + ".FileProvider", file)
             intent.setDataAndType(contentUri, "application/vnd.android.package-archive")
         } else {
             intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive")

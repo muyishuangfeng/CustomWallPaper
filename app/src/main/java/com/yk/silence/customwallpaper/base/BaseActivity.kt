@@ -34,6 +34,8 @@ abstract class BaseActivity : SwipeBackActivity() {
     abstract fun initData()
 
 
+
+
     /**
      * 页面跳转
      *

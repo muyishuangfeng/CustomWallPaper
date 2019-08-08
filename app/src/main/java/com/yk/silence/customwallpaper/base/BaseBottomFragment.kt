@@ -45,10 +45,7 @@ abstract class BaseBottomFragment : BottomSheetDialogFragment() {
     protected abstract fun fragmentId(): Int
 
 
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
-        this.mActivity = context as Activity?
-    }
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

@@ -1,6 +1,5 @@
 package com.yk.silence.customwallpaper.util
 
-import android.annotation.SuppressLint
 import android.content.ContentResolver
 import android.content.ContentResolver.SCHEME_CONTENT
 import android.content.Context
@@ -9,10 +8,6 @@ import android.net.Uri
 import android.provider.MediaStore
 import com.yk.silence.customwallpaper.ui.mediapicture.model.ImageMediaEntity
 import com.yk.silence.customwallpaper.ui.mediapicture.model.VideoMediaEntity
-import android.provider.MediaStore.Video
-import android.util.Log
-import com.yk.silence.customwallpaper.ui.mediapicture.model.MediaBean
-import java.io.File
 
 
 class MediaUtils {
@@ -31,7 +26,7 @@ class MediaUtils {
                 return null
             }
 
-            if (SCHEME_CONTENT == uri.getScheme()) {
+            if (SCHEME_CONTENT == uri.scheme) {
                 var cursor: Cursor? = null
                 try {
                     cursor = resolver.query(uri, arrayOf(MediaStore.Images.ImageColumns.DATA), null, null, null)
@@ -44,7 +39,7 @@ class MediaUtils {
                     }
                 }
             }
-            return uri.getPath()
+            return uri.path
         }
 
         /**
@@ -87,9 +82,7 @@ class MediaUtils {
                     return images
                 }
             } finally {
-                if (cursor != null) {
-                    cursor.close()
-                }
+                cursor?.close()
             }
         }
 
@@ -167,9 +160,7 @@ class MediaUtils {
                     return videos
                 }
             } finally {
-                if (cursor != null) {
-                    cursor.close()
-                }
+                cursor?.close()
             }
         }
 

@@ -5,6 +5,8 @@ import android.text.TextUtils
 import com.yk.silence.customwallpaper.constance.Constants
 import com.yk.silence.customwallpaper.mvp.model.bean.HomeModel
 import java.io.*
+import java.nio.file.Files.exists
+import kotlin.String as String1
 
 
 object FileUtil {
@@ -15,7 +17,7 @@ object FileUtil {
      * @param filePath 文件路径
      * @return `true`: 存在<br></br>`false`: 不存在
      */
-    fun isFileExists(filePath: String): Boolean {
+    fun isFileExists(filePath: String1): Boolean {
         return isFileExists(getFileByPath(filePath))
     }
 
@@ -35,19 +37,21 @@ object FileUtil {
      * @param filePath 文件路径
      * @return 文件
      */
-    fun getFileByPath(filePath: String): File? {
+    fun getFileByPath(filePath: String1): File? {
         return if (StringUtil.isSpace(filePath)) null else File(filePath)
     }
 
     /**
      * 创建文件夹
      */
-    fun createFile(path: String) {
+    fun createFile(path: kotlin.String) {
         val file = File(path)
         if (!file.exists()) {
             file.mkdirs()
         }
     }
+
+
 
     /**
      * 文件夹路径
@@ -67,7 +71,7 @@ object FileUtil {
      * @param sourceFilePath 资源路径
      * @param destFilePath   目标的路径
      */
-    fun moveFile(sourceFilePath: String, destFilePath: String) {
+    fun moveFile(sourceFilePath: String1, destFilePath: String1) {
         if (TextUtils.isEmpty(sourceFilePath) || TextUtils.isEmpty(destFilePath)) {
             throw RuntimeException(
                     "Both sourceFilePath and destFilePath cannot be null.")
@@ -98,7 +102,7 @@ object FileUtil {
      * @param stream   输入流
      * @return 返回是否写入成功
      */
-    private fun writeFile(filePath: String, stream: InputStream): Boolean {
+    private fun writeFile(filePath: String1, stream: InputStream): Boolean {
         return writeFile(filePath, stream, false)
     }
 
@@ -109,7 +113,7 @@ object FileUtil {
      * @param stream   the input stream
      * @param append   if `true`, then bytes will be written to the end of
      */
-    private fun writeFile(filePath: String?, stream: InputStream,
+    private fun writeFile(filePath: String1?, stream: InputStream,
                           append: Boolean): Boolean {
         if (filePath != null)
             return FileUtil.writeFile(File(filePath), stream, append)
@@ -130,7 +134,7 @@ object FileUtil {
             makeDirs(file.absolutePath)
             o = FileOutputStream(file, append)
             val data = ByteArray(1024)
-            var length: Int
+            val length: Int
             length = stream.read(data)
             while (length != -1) {
                 o.write(data, 0, length)
@@ -152,7 +156,7 @@ object FileUtil {
      * @param filePath 路径
      * @return 是否创建成功
      */
-    fun makeDirs(filePath: String): Boolean {
+    fun makeDirs(filePath: String1): Boolean {
 
         val folderName = getFolderName(filePath)
         if (StringUtil.isEmpty(folderName)) {
@@ -169,7 +173,7 @@ object FileUtil {
     /**
      * 获取文件夹名称
      */
-    fun getFolderName(filePath: String): String {
+    fun getFolderName(filePath: String1): String1 {
         if (StringUtil.isEmpty(filePath)) {
             return filePath
         }
@@ -181,7 +185,7 @@ object FileUtil {
      * @param path 路径
      * @return 是否删除成功
      */
-    fun deleteFile(path: String): Boolean {
+    fun deleteFile(path: String1): Boolean {
 
         if (StringUtil.isBlank(path)) {
             return true
@@ -213,8 +217,8 @@ object FileUtil {
      * @param dirPath 需要查询的文件目录
      * @param _type 查询类型，比如mp3什么的
      */
-    fun searchAllFile(mPath: String): List<HomeModel>?{
-        var fileList: MutableList<HomeModel> = mutableListOf()
+    fun searchAllFile(mPath: String1): List<HomeModel>?{
+        val fileList: MutableList<HomeModel> = mutableListOf()
         //在该目录下走一圈，得到文件目录树结构
         val fileTree: FileTreeWalk = File(mPath).walk()
         fileTree.maxDepth(1) //需遍历的目录层级为1，即无需检查子目录
@@ -229,7 +233,7 @@ object FileUtil {
      * @param oldPath 源文件路径
      * @param newPath 目标文件路径
      */
-    fun copyFile(oldPath: String, newPath: String): Boolean {
+    fun copyFile(oldPath: String1, newPath: String1): Boolean {
         val oldFile = File(oldPath)
         val newFile = File(newPath)
         newFile.deleteOnExit()
@@ -244,5 +248,6 @@ object FileUtil {
         println("复制完毕，耗时${(System.currentTimeMillis() - now) / 1000}秒")
         return true
     }
+
 
 }

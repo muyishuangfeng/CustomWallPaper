@@ -58,9 +58,10 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.fileprovider"
+            android:authorities="${applicationId}.FileProvider"
             android:exported="false"
-            android:grantUriPermissions="true">
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/install_file" />
@@ -71,7 +72,10 @@
 
         <service
             android:name=".service.DownloadService"
-            android:exported="false"></service>
+            android:exported="false" />
+
+        <activity android:name=".widget.activity.StoryDetailActivity" />
+        <activity android:name=".widget.activity.MyselfActivity"/>
     </application>
 
 </manifest>

@@ -4,14 +4,14 @@ import android.view.View
 import com.yk.silence.customwallpaper.R
 import com.yk.silence.customwallpaper.base.BaseFragment
 import com.yk.silence.customwallpaper.widget.activity.SettingActivity
-import kotlinx.android.synthetic.main.fragment_myself.*
+import kotlinx.android.synthetic.main.fragment_read.*
 
 
-class MyselfFragment : BaseFragment(), View.OnClickListener {
+class ReadFragment : BaseFragment(), View.OnClickListener {
 
 
     override fun getLayoutID(): Int {
-        return R.layout.fragment_myself
+        return R.layout.fragment_read
     }
 
     override fun initView() {

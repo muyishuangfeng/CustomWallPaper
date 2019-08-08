@@ -33,6 +33,16 @@ object Constants {
     val DOWNLOAD_PATH = (SDCARD_PATH + File.separator + DIR_IN_SDCARD + File.separator
             + "download" + File.separator)
     /**
+     *头像路径
+     */
+    val AVATAR_PATH = (SDCARD_PATH + File.separator + DIR_IN_SDCARD + File.separator
+            + "avatar" + File.separator)
+    /**
+     *背景路径
+     */
+    val BACKGROUND_PATH = (SDCARD_PATH + File.separator + DIR_IN_SDCARD + File.separator
+            + "bg" + File.separator)
+    /**
      *安装的文件路径
      */
     val INSTALL_PATH = (SDCARD_PATH + File.separator + DIR_IN_SDCARD + File.separator
@@ -53,7 +63,15 @@ object Constants {
     /**
      * 文件安装路径
      */
-    val ARG_NUMBER = "ARG_NUMBER"
+    const val ARG_NUMBER = "ARG_NUMBER"
+    /**
+     * 用户头像
+     */
+    val USER_AVATAR = AVATAR_PATH + "user.jpg"
+    /**
+     * 用户背景
+     */
+    val USER_BG = BACKGROUND_PATH + "bg.jpg"
 
     /**
      * 类型

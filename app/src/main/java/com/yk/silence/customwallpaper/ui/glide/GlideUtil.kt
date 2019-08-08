@@ -3,6 +3,7 @@ package com.yk.silence.customwallpaper.ui.glide
 import android.app.Activity
 import android.content.Context
 import android.net.Uri
+import android.widget.ImageView
 import androidx.appcompat.widget.AppCompatImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -30,8 +31,20 @@ object GlideUtil {
      * @param diskCacheStrategy 缓存
      * @param imageView         图片
      */
-    fun loadUrlToImage(context: Context, url: String,  errorID: Int,
+    fun loadUrlToImage(context: Context, url: String, errorID: Int,
                        diskCacheStrategy: DiskCacheStrategy, imageView: AppCompatImageView) {
+        val options = RequestOptions()
+                .placeholder(imageView.drawable)
+                .error(errorID)
+                .diskCacheStrategy(diskCacheStrategy)
+        Glide.with(context)
+                .load(url)
+                .apply(options)
+                .into(imageView)
+    }
+
+    fun loadAvatar(context: Context, url: String, errorID: Int,
+                   diskCacheStrategy: DiskCacheStrategy, imageView: ImageView) {
         val options = RequestOptions()
                 .placeholder(imageView.drawable)
                 .error(errorID)

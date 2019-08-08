@@ -56,6 +56,12 @@ class SplashActivity : BaseActivity() {
                         if (!FileUtil.isFileExists(Constants.DOWNLOAD_PATH)) {
                             FileUtil.createFile(Constants.DOWNLOAD_PATH)
                         }
+                        if (!FileUtil.isFileExists(Constants.AVATAR_PATH)) {
+                            FileUtil.createFile(Constants.AVATAR_PATH)
+                        }
+                        if (!FileUtil.isFileExists(Constants.BACKGROUND_PATH)) {
+                            FileUtil.createFile(Constants.BACKGROUND_PATH)
+                        }
                         initView()
                     }
 

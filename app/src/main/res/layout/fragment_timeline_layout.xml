@@ -6,8 +6,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorGrayLight"
+        android:layout_height="@dimen/dp_40"
+        android:layout_margin="@dimen/dp_10"
+        android:background="@drawable/edit_all_corner"
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:orientation="horizontal">
@@ -15,11 +16,15 @@
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/edt_timeline_content"
             android:layout_width="0dp"
-            android:layout_height="@dimen/dp_45"
+            android:layout_height="match_parent"
             android:layout_margin="@dimen/dp_5"
             android:layout_weight="1"
-            android:background="@drawable/edit_all_corner"
-            android:focusable="auto" />
+            android:background="@null"
+            android:focusable="auto"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:hint="@string/text_hint_content"
+            android:textSize="@dimen/sp_12" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_timeline_search"
@@ -35,7 +40,6 @@
         android:id="@+id/elv_timeline"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
 
 
 </LinearLayout>

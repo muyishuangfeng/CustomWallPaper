@@ -41,4 +41,14 @@
     <string name="text_download">下载</string>
     <string name="text_story">故事</string>
     <string name="text_no_name">未命名</string>
+    <string name="text_contact">联系人</string>
+    <string name="text_night_model">夜间模式</string>
+    <string name="text_change_bg">更改背景</string>
+    <string name="text_done">完成</string>
+    <string name="text_day">天数</string>
+    <string name="text_love">喜欢</string>
+    <string name="text_add_photo">添加方式</string>
+    <string name="text_photo_library">相册</string>
+    <string name="text_camera">相机</string>
+    <string name="text_hint_content">搜索标题、内容、地点、位置</string>
 </resources>

@@ -8,6 +8,7 @@ import com.yk.silence.customwallpaper.R
 import com.yk.silence.customwallpaper.base.BaseFragment
 import com.yk.silence.customwallpaper.impl.OnItemClickListener
 import com.yk.silence.customwallpaper.mvp.model.bean.note.NoteBean
+import com.yk.silence.customwallpaper.widget.activity.StoryDetailActivity
 import com.yk.silence.customwallpaper.widget.adapter.StoryAdapter
 import kotlinx.android.synthetic.main.fragment_story_layout.*
 
@@ -35,6 +36,7 @@ class StoryFragment : BaseFragment(), OnItemClickListener {
     override fun itemClick(position: Int, itemView: View) {
         val mBean = mList?.get(position)
         Toast.makeText(context, mBean.toString(), Toast.LENGTH_LONG).show()
+        startActivity(StoryDetailActivity::class.java)
 
     }
 }

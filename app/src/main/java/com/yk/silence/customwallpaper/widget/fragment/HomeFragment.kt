@@ -17,11 +17,14 @@ import android.graphics.BitmapFactory
 import com.yk.silence.customwallpaper.mvp.model.bean.HomeModel
 import java.io.IOException
 import android.widget.Toast
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.snackbar.Snackbar
 import com.yk.silence.customwallpaper.ui.mediapicture.activity.VideoSelectActivity
+import io.reactivex.Observer as Observer
 
 
-class HomeFragment : BaseFragment(), OnTabSelectListener, OnItemClickListener, View.OnClickListener {
+class HomeFragment : BaseFragment(), OnTabSelectListener, OnItemClickListener,
+        View.OnClickListener, SwipeRefreshLayout.OnRefreshListener {
 
 
     private val mTitles = arrayOf("图片", "视频")
@@ -35,6 +38,13 @@ class HomeFragment : BaseFragment(), OnTabSelectListener, OnItemClickListener, V
     }
 
     override fun initView() {
+        srl_home.setColorSchemeResources(
+                android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light)
+        srl_home.isRefreshing = true
+        srl_home.setOnRefreshListener(this)
         fab.setOnClickListener(this)
         slide_layout.setTabData(mTitles)
         slide_layout.setOnTabSelectListener(this)
@@ -78,6 +88,10 @@ class HomeFragment : BaseFragment(), OnTabSelectListener, OnItemClickListener, V
         }
     }
 
+    override fun onRefresh() {
+        searchFile(Constants.IMAGE_PATH)
+    }
+
     /**
      * 查询图片
      */
@@ -85,6 +99,7 @@ class HomeFragment : BaseFragment(), OnTabSelectListener, OnItemClickListener, V
         if (FileUtil.isFileExists(path)) {
             mList = FileUtil.searchAllFile(path)
             if (mList!!.isNotEmpty()) {
+                srl_home.isRefreshing = false
                 rlv_home.visibility = View.VISIBLE
                 lyt_empty.visibility = View.GONE
                 mAdapter = HomeAdapter(context!!, mList!!)
@@ -94,6 +109,7 @@ class HomeFragment : BaseFragment(), OnTabSelectListener, OnItemClickListener, V
             } else {
                 rlv_home.visibility = View.GONE
                 lyt_empty.visibility = View.VISIBLE
+                srl_home.isRefreshing = false
             }
         }
     }
@@ -122,5 +138,8 @@ class HomeFragment : BaseFragment(), OnTabSelectListener, OnItemClickListener, V
 //        startActivity(intent)
     }
 }
+
+
+
 
 
