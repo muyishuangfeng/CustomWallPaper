@@ -13,23 +13,20 @@ class DBController {
      * 静态方法
      */
     companion object {
-        private val sInstance: DBController? = null
-
-        fun getInstance(): DBController {
-            if (sInstance == null) {
-                synchronized(DBController::class.java) {
-                    sInstance == DBController()
-                }
-            }
-            return sInstance!!
+        /**
+         * 单例
+         */
+        val instance: DBController by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) {
+            DBController()
         }
+
     }
 
     /**
      * 增加
      */
     fun add(noteName: String?, content: String?, location: String?, imgUrl: String?,
-            month: String?,year:String?): Boolean {
+            month: String?, year: String?): Boolean {
         val noteBean = NoteBean()
         noteBean.userContent = content
         noteBean.userLocation = location

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.yk.silence.toolbar.CustomTitleBar
+        android:id="@+id/title_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:leftImage="@drawable/ic_back"
+        app:middleTextColor="@color/colorBlue"
+        app:middleTextSize="@dimen/sp_16"
+        app:middleTitle="@string/text_contact"
+        app:rightImage="@drawable/ic_add" />
+
+    <TextView
+        android:id="@+id/txt_contact_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_10"
+        android:drawableStart="@drawable/ic_contact"
+        android:drawablePadding="@dimen/dp_10"
+        android:text="@string/text_contact_msg"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/sp_14" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/colorGrayLight"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/dp_20"
+        android:text="@string/text_contact_list"
+        android:textColor="@color/colorGray"
+        android:textSize="@dimen/sp_12" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rlv_contact"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</LinearLayout>

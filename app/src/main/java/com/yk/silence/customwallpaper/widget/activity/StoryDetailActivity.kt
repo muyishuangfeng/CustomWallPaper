@@ -3,13 +3,16 @@ package com.yk.silence.customwallpaper.widget.activity
 import android.os.Bundle
 import android.view.View
 import android.widget.ExpandableListView
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.yk.silence.customwallpaper.R
 import com.yk.silence.customwallpaper.base.BaseActivity
 import com.yk.silence.customwallpaper.constance.Constants
 import com.yk.silence.customwallpaper.mvp.model.bean.note.NoteBean
 import com.yk.silence.customwallpaper.mvp.model.bean.note.NoteGroupBean
+import com.yk.silence.customwallpaper.ui.glide.GlideUtil
 import com.yk.silence.customwallpaper.widget.adapter.TimeLineAdapter
 import kotlinx.android.synthetic.main.activity_story_detail.*
+import java.io.File
 
 class StoryDetailActivity : BaseActivity(), View.OnClickListener, ExpandableListView.OnChildClickListener {
 
@@ -23,6 +26,14 @@ class StoryDetailActivity : BaseActivity(), View.OnClickListener, ExpandableList
     override fun initData() {
         toolbar_story.setOnClickListener(this)
         initAdapter()
+        if (Constants.USER_BG.isNotEmpty()) {
+            GlideUtil.loadLocalFile(this,
+                    File(Constants.USER_BG),
+                    R.drawable.ic_no,
+                    R.drawable.ic_no,
+                    DiskCacheStrategy.ALL,
+                    img_story_photo)
+        }
     }
 
     override fun onClick(v: View?) {

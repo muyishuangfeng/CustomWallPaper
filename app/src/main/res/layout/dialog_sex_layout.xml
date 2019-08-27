@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginStart="@dimen/dp_20"
+    android:layout_marginEnd="@dimen/dp_20"
+    app:cardCornerRadius="@dimen/dp_16"
+    app:cardElevation="@dimen/dp_0">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/dp_20">
+
+        <TextView
+            android:id="@+id/txt_dialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_24"
+            android:gravity="center"
+            android:text="@string/text_choose_sex"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/sp_16"
+            app:fontFamily="@font/montserrat_medium" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_dialog_title"
+            android:layout_marginTop="@dimen/dp_20"
+            android:orientation="horizontal">
+
+            <com.yk.silence.customwallpaper.ui.textview.DrawableTextView
+                android:id="@+id/txt_dialog_boy"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/text_boy"
+                android:textColor="@color/colorGray"
+                android:textSize="@dimen/sp_12"
+                app:drawable_height="@dimen/dp_16"
+                app:drawable_location="top"
+                app:drawable_src="@drawable/ic_male"
+                app:drawable_width="@dimen/dp_16"
+                app:fontFamily="@font/montserrat_semibold" />
+
+
+            <View
+                android:layout_width="@dimen/dp_1"
+                android:layout_height="match_parent"
+                android:background="@color/colorGrayLight" />
+
+            <com.yk.silence.customwallpaper.ui.textview.DrawableTextView
+                android:id="@+id/txt_dialog_girl"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/text_girl"
+                android:textColor="@color/colorGray"
+                android:textSize="@dimen/sp_12"
+                app:drawable_height="@dimen/dp_16"
+                app:drawable_location="top"
+                app:drawable_src="@drawable/ic_female"
+                app:drawable_width="@dimen/dp_16"
+                app:fontFamily="@font/montserrat_semibold" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

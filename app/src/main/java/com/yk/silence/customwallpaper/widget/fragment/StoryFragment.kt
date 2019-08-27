@@ -35,7 +35,6 @@ class StoryFragment : BaseFragment(), OnItemClickListener {
 
     override fun itemClick(position: Int, itemView: View) {
         val mBean = mList?.get(position)
-        Toast.makeText(context, mBean.toString(), Toast.LENGTH_LONG).show()
         startActivity(StoryDetailActivity::class.java)
 
     }

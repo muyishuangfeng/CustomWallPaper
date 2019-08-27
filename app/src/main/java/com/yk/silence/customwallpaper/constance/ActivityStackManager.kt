@@ -38,11 +38,7 @@ class ActivityStackManager private constructor() {
             mCurrentActivityWeakRef = WeakReference<Activity>(activity)
         }
 
-    /**
-     * 获取栈顶activity
-     *
-     * @return
-     */
+
     /**
      * 设置栈顶activity
      *

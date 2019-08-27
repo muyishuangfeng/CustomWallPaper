@@ -47,6 +47,11 @@ object Constants {
      */
     val INSTALL_PATH = (SDCARD_PATH + File.separator + DIR_IN_SDCARD + File.separator
             + "install" + File.separator)
+    /*
+   * 缓存路径
+   */
+    val CACHE_PATH = (SDCARD_PATH + File.separator + DIR_IN_SDCARD + File.separator
+            + "cachePath" + File.separator)
     /**
      *端口
      */
@@ -68,6 +73,10 @@ object Constants {
      * 用户头像
      */
     val USER_AVATAR = AVATAR_PATH + "user.jpg"
+    /**
+     * 用户联系人
+     */
+    const val USER_CONTACTS ="USER_CONTACTS"
     /**
      * 用户背景
      */

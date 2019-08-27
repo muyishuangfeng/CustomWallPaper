@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_50"
+    android:background="@color/colorGrayLight"
+    android:orientation="horizontal">
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="@dimen/dp_32"
+        android:layout_height="@dimen/dp_32"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/dp_10"
+        android:src="@drawable/ic_user_avatar" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/dp_15"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_item_contact_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_default"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/sp_12" />
+
+        <TextView
+            android:id="@+id/txt_item_contact_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_5"
+            android:text="@string/text_default"
+            android:textColor="@color/colorGray"
+            android:textSize="@dimen/sp_10" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_item_contact_invite"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_35"
+        android:text="@string/text_invite"
+        android:layout_gravity="center"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/sp_12"
+        android:background="@drawable/btn_all_blue_corners"/>
+</LinearLayout>

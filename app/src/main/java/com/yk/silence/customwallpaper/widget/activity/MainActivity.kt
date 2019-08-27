@@ -49,11 +49,9 @@ class MainActivity : BaseActivity(), OnTabSelectListener, ViewPager.OnPageChange
     override fun initData() {
         txt_mine_setting.setOnClickListener(this)
         txt_mine_model.setOnClickListener(this)
+        txt_mine_contact.setOnClickListener(this)
         drawer_mine.setScrimColor(Color.TRANSPARENT);
         img_mine_avatar.setOnClickListener(this)
-
-        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
-
         homeFragment = HomeFragment()
         myselfFragment = ReadFragment()
         nodeFragment = NodeFragment()
@@ -100,6 +98,9 @@ class MainActivity : BaseActivity(), OnTabSelectListener, ViewPager.OnPageChange
             }
             R.id.txt_mine_model -> {
                 AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
+            }
+            R.id.txt_mine_contact -> {
+                startActivity(ContactActivity::class.java)
             }
             R.id.img_mine_avatar -> {
                 startActivity(MyselfActivity::class.java)

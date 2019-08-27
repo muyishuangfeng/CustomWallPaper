@@ -2,8 +2,11 @@ package com.yk.silence.customwallpaper.widget.activity
 
 import android.Manifest
 import android.animation.Animator
+import android.util.Log
+import com.tencent.mmkv.MMKV
 import com.yk.silence.customwallpaper.R
 import com.yk.silence.customwallpaper.base.BaseActivity
+import com.yk.silence.customwallpaper.constance.AppConfig
 import com.yk.silence.customwallpaper.constance.Constants
 import com.yk.silence.customwallpaper.util.FileUtil
 import com.yk.silent.permission.HiPermission
@@ -61,6 +64,10 @@ class SplashActivity : BaseActivity() {
                         }
                         if (!FileUtil.isFileExists(Constants.BACKGROUND_PATH)) {
                             FileUtil.createFile(Constants.BACKGROUND_PATH)
+                        }
+                        if (!FileUtil.isFileExists(Constants.CACHE_PATH)) {
+                            FileUtil.createFile(Constants.CACHE_PATH)
+                            MMKV.initialize(Constants.CACHE_PATH)
                         }
                         initView()
                     }
